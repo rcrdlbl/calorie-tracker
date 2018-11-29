@@ -1,0 +1,11 @@
+<% if flash[:notice] %>
+<%= content_tag :div, flash[:notice] %>
+<% end %>
+<%= form_for :user, url: {action: 'create'} do |f| %>
+Name: <%= f.text_field :name %>
+Email: <%= f.text_field :email %>
+Maximum Daily Calories: <%= f.number_field :max_calories %>
+Password: <%= f.password_field :password %>
+<%= f.submit "Sign Up" %>
+<% end %>
+<%= link_to "Or Login With Facebook", '/auth/facebook' %>
