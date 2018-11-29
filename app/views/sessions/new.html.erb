@@ -3,7 +3,7 @@
 <% end %>
 <%= form_for :user, url: {action: 'create'} do |f| %>
 Email: <%= f.text_field :email %>
-Password <%= f.text_field :password %>
+Password <%= f.password_field :password %>
 <%= f.submit "Sign In" %>
 <% end %>
 <%= link_to "Or Login With Facebook", '/auth/facebook' %>
