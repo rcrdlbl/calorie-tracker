@@ -7,6 +7,8 @@ class UsersController < ApplicationController
       user = User.find_or_create_by(uid: auth['uid']) do |u|
         u.name = auth['info']['name']
         u.email = auth['info']['email']
+        session[:user_id] = user.id
+        redirect_to user_path(user)
       end
     else
       user = User.new(user_params)
@@ -18,8 +20,6 @@ class UsersController < ApplicationController
         redirect_to '/users/new'
       end
     end
-    session[:user_id] = user.id
-    redirect_to user_path(user)
   end
 
   def show
