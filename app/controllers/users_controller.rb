@@ -42,7 +42,7 @@ class UsersController < ApplicationController
         redirect_to user_path(user)
       end
     else
-      flash[:notice] = "Something went wrong when editing this profile."
+      flash[:notice] = "You can't edit another user's profile."
       redirect_to user_path(user)
     end
   end
