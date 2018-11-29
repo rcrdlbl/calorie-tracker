@@ -28,10 +28,20 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = user.find_by(params[:id])
+    @user = User.find(params[:id])
   end
 
   def update
+    user = User.find(params[:id])
+    if user.id == session[:user_id]
+      user.update(user_params)
+      if user && user.save
+        redirect_to user_path(user)
+      else
+        flash[:notice] = "Something went wrong when editing this profile."
+        redirect_to user_path(user)
+      end
+    end
   end
 
 
