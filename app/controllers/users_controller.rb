@@ -41,6 +41,9 @@ class UsersController < ApplicationController
         flash[:notice] = "Something went wrong when editing this profile."
         redirect_to user_path(user)
       end
+    else
+      flash[:notice] = "Something went wrong when editing this profile."
+      redirect_to user_path(user)
     end
   end
 
