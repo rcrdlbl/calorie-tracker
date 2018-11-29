@@ -27,6 +27,13 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def edit
+    @user = user.find_by(params[:id])
+  end
+
+  def update
+  end
+
 
   private
 

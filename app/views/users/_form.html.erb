@@ -1,0 +1,7 @@
+<%= form_for(user, url: {action: action} )do |f| %>
+Name: <%= f.text_field :name %>
+Email: <%= f.text_field :email %>
+Maximum Daily Calories: <%= f.number_field :max_calories %>
+Password: <%= f.password_field :password %>
+<%= f.submit "#{button_text}" %>
+<% end %>
