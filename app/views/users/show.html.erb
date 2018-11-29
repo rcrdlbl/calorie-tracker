@@ -3,3 +3,4 @@
 <% end %>
 <h1><%= @user.name %></h1>
 <p>This user's calorie limit is <%= @user.max_calories %></p>
+<%= link_to "Log Out", '/logout', method: :delete %>
