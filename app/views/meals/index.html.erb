@@ -4,3 +4,6 @@
   <p><%= meal.food_item.food_quantity %><%= link_to meal.food_item.name.pluralize(meal.food_item.food_quantity), user_meal_path(@user, meal) %></p>
 </div>
 <% end %>
+<div>
+  <%= link_to "Back", user_path(@user) %>
+</div>
