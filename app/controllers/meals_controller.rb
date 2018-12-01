@@ -6,7 +6,12 @@ class MealsController < ApplicationController
   def create
     #fix this it's not good
     meal = Meal.create(meal_params)
-    redirect_to user_meal_path(meal)
+    if meal && meal.user_id == session[:user_id]
+      redirect_to user_meal_path(meal)
+    else
+      flash[:notice] = "Something went wrong eating this meal."
+      redirect_to new_food_item_meal_path
+    end
   end
 
   private

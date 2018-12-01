@@ -1,3 +1,6 @@
+<% if flash[:notice] %>
+<%= content_tag :div, flash[:notice] %>
+<% end %>
 <%= form_for @meal, url: {action: "create"} do |f| %>
 <h1><%= @meal.user.name %> is about to eat <%= f.number_field :food_quantity %> <%= @meal.food_item.name %>(s).</h1>
 <%= f.hidden_field :user_id %>
