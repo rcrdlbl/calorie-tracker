@@ -1,2 +1,3 @@
 <h1><%= @food_item.name %></h1>
 <p>Has <%= @food_item.calories %> calories.</p>
+<%= link_to "Eat the #{@food_item.name}", new_food_item_meal_path(@food_item) %>
