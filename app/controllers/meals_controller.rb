@@ -4,6 +4,9 @@ class MealsController < ApplicationController
   end
 
   def create
+    #fix this it's not good
+    meal = Meal.create(meal_params)
+    redirect_to user_meal_path(meal)
   end
 
   private
