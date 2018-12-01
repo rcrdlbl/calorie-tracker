@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :sessions, only: [:create]
   delete '/logout', to: 'sessions#destroy'
   get '/auth/facebook/callback' => 'users#create'
-  resources :food_items
+  resources :food_items do
+    resources :meals, only: [:new, :create]
+  end
 
 end
