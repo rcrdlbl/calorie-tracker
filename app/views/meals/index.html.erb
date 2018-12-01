@@ -1,0 +1,6 @@
+<h1><%= @user.name %>'s meals</h1>
+<% @meals.each do |meal| %>
+<div>
+  <p><%= meal.food_item.food_quantity %><%= link_to meal.food_item.name.pluralize(meal.food_item.food_quantity), user_meal_path(@user, meal) %></p>
+</div>
+<% end %>
