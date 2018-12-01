@@ -24,6 +24,16 @@ class FoodItemsController < ApplicationController
     @food_item = FoodItem.find(params[:id])
   end
 
+  def update
+    food_item = FoodItem.find(params[:id])
+    if food_item.update(food_item_params)
+      redirect_to food_item_path(food_item)
+    else
+      flash[:notice] = "Something went wrong editing this food item. Did you fill out all the fields?"
+      redirect_to edit_food_item_path(food_item)
+    end
+  end
+
 
   private
 
