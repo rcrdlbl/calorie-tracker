@@ -2,6 +2,6 @@
 <h1><%= @meal.user.name %> is about to eat <%= f.number_field :food_quantity %> <%= @meal.food_item.name %>(s).</h1>
 <%= f.hidden_field :user_id %>
 <%= f.hidden_field :food_item_id %>
-Quantity: <%= f.number_field :food_quantity %>
 <p>How did this meal make you feel? <%= f.text_field :description %></p>
+<p><%= f.submit "Yes. I ate this." %></p>
 <% end %>
