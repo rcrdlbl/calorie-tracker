@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
         redirect_to user_path(user)
       else
         flash[:notice] = "Something went wrong signing in. Maybe your password is misspelled?"
-        redirect_to '/signin'
+        redirect_to '/login'
       end
     end
   end
