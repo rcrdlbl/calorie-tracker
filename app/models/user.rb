@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   has_secure_password
   before_save :default_values
+  validates :name, presence: :true
+  validates :email, presence: :true
+  validates :email, uniqueness: true
   has_many :meals
   has_many :food_items, through: :meals
 
@@ -17,5 +20,5 @@ class User < ApplicationRecord
     end
     cal_total
   end
-  
+
 end
