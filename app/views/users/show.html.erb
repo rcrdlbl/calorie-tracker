@@ -4,6 +4,11 @@
 <h1><%= @user.name %></h1>
 <p>This user's calorie limit is <%= @user.max_calories %></p>
 <p>They have had <%= @user.todays_calories %> calories today. <%= link_to "See what they've eaten", user_meals_path(@user) %></p>
+
+<% if @user.todays_calories > @user.max_calories %>
+<h3>That's over <%= @user.name %>'s limit!</h3>
+<% end %>
+
 <%= link_to "Log Out", '/logout', method: :delete %>
 <%= link_to "Edit Profile", edit_user_path(@user) %>
 <div class="">
