@@ -11,8 +11,8 @@ class FoodItemsController < ApplicationController
   end
 
   def create
-    food_item = FoodItem.new(food_item_params)
-    if food_item && food_item.save
+    food_item = FoodItem.create(food_item_params)
+    if food_item.valid?
       redirect_to food_item_path(food_item)
     else
       flash[:notice] = "Something went wrong creating this food item. Did you fill out all the fields?"
