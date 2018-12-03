@@ -12,9 +12,9 @@ class FoodItemsController < ApplicationController
   end
 
   def create
-    food_item = FoodItem.create(food_item_params)
-    if food_item.valid?
-      redirect_to food_item_path(food_item)
+    @food_item = FoodItem.create(food_item_params)
+    if @food_item.valid?
+      redirect_to food_item_path(@food_item)
     else
       render :new
     end
