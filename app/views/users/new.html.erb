@@ -15,6 +15,6 @@
     </ul>
   </div>
 <% end %>
-<%= render partial: "form", locals: {user: :user, action: "create", button_text: "Sign Up"} %>
+<%= render partial: "form", locals: {user: @user, action: "create", button_text: "Sign Up"} %>
 
 <%= link_to "Or Login With Facebook", '/auth/facebook' %>
