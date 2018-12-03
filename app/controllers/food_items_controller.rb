@@ -25,9 +25,9 @@ class FoodItemsController < ApplicationController
   end
 
   def update
-    food_item = FoodItem.find(params[:id])
-    if food_item.update(food_item_params)
-      redirect_to food_item_path(food_item)
+    @food_item = FoodItem.find(params[:id])
+    if @food_item.update(food_item_params)
+      redirect_to food_item_path(@food_item)
     else
       render :edit
     end
