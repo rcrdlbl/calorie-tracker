@@ -8,6 +8,7 @@ class FoodItemsController < ApplicationController
   end
 
   def new
+    @food_item = FoodItem.new
   end
 
   def create
