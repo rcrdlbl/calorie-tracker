@@ -1,15 +1,15 @@
 <% if flash[:notice] %>
 <%= content_tag :div, flash[:notice] %>
 <% end %>
-<% if @post.errors.any? %>
+<% if @food_item.errors.any? %>
   <div id="error_explanation">
     <h2>
-      <%= pluralize(@post.errors.count, "error") %>
+      <%= pluralize(@food_item.errors.count, "error") %>
       prohibited this post from being saved:
     </h2>
 
     <ul>
-    <% @post.errors.full_messages.each do |msg| %>
+    <% @food_item.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
     <% end %>
     </ul>

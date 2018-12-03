@@ -1,19 +1,20 @@
 class SessionsController < ApplicationController
   def new
+    @user = user.new
   end
 
   def create
     if auth
-      user = User.find_or_create_by(uid: auth['uid']) do |u|
+      @user = User.find_or_create_by(uid: auth['uid']) do |u|
         u.name = auth['info']['name']
         u.email = auth['info']['email']
       end
-      redirect_to user_path(user)
+      redirect_to user_path(@user)
     else
-      user = User.find_by(email: params[:user][:email])
-      if user && user.authenticate(params[:user][:password])
-        session[:user_id] = user.id
-        redirect_to user_path(user)
+      @user = User.find_by(email: params[:user][:email])
+      if @user && @user.authenticate(params[:user][:password])
+        session[:user_id] = @user.id
+        redirect_to user_path(@user)
       else
         flash[:notice] = "Something went wrong signing in. Maybe your password is misspelled?"
         redirect_to '/login'
