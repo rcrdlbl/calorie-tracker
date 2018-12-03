@@ -13,8 +13,13 @@ Specs:
 - [x] Include login (how e.g. Devise) bcrypt/omniauth
 - [x] Include logout (how e.g. Devise)
 - [x] Include third party signup/login (how e.g. Devise/OmniAuth) omniauth
+<<<<<<< HEAD
 - [x] Include nested resource show or index (URL e.g. users/2/recipes)
 - [x] Include nested resource "new" form (URL e.g. recipes/1/ingredients/new)
+=======
+- [ ] Include nested resource show or index (URL e.g. users/2/recipes)
+- [ ] Include nested resource "new" form (URL e.g. recipes/1/ingredients/new)
+>>>>>>> 353181ad48308b4ac6d005954a6ec60ccd386f40
 - [ ] Include form display of validation errors (form URL e.g. /recipes/new)
 
 Confirm:
