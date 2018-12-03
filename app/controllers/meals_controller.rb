@@ -9,8 +9,7 @@ class MealsController < ApplicationController
     if meal && meal.user_id == session[:user_id]
       redirect_to user_meal_path(meal.user, meal)
     else
-      flash[:notice] = "Something went wrong eating this meal."
-      redirect_to new_food_item_meal_path
+      render :new
     end
   end
 

@@ -18,7 +18,7 @@ class UsersController < ApplicationController
         redirect_to user_path(user)
       else
         flash[:notice] = "Something Went Wrong Creating This User. Maybe one with this username already exists?"
-        redirect_to '/users/new'
+        render :new
       end
     end
   end
@@ -39,7 +39,7 @@ class UsersController < ApplicationController
         redirect_to user_path(user)
       else
         flash[:notice] = "Something went wrong when editing this profile."
-        redirect_to user_path(user)
+        render :new
       end
     else
       flash[:notice] = "You can't edit another user's profile."
