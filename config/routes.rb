@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   resources :food_items do
     resources :meals, only: [:new, :create]
   end
+  get '/meals/eaten_today', to: 'meals#eaten_today'
 
 end
