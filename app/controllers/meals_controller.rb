@@ -23,6 +23,10 @@ class MealsController < ApplicationController
     @meal = Meal.find(params[:id])
   end
 
+  def eaten_today
+    @meals = Meal.all.eaten_today
+  end
+
   private
 
   def meal_params
