@@ -13,8 +13,8 @@ class User < ApplicationRecord
 
   def todays_calories
     cal_total = 0
-    if self.meals.where("created_at >= ?", Time.zone.now.beginning_of_day)
-      self.meals.where("created_at >= ?", Time.zone.now.beginning_of_day).each do |meal|
+    if self.meals.eaten_today
+      self.meals.eaten_today.each do |meal|
         cal_total += meal.calorie_count
       end
     end

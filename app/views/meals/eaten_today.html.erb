@@ -1,0 +1,6 @@
+<h1>Meals Eaten Today</h1>
+<ul>
+  <% @meals.all.each do |meal| %>
+    <li><%= link_to "#{meal.user.name} had #{meal.food_quantity} #{meal.food_item.name.pluralize(meal.food_quantity)}.", user_meal_path(meal.user, meal) %></li>
+  <% end %>
+</ul>
