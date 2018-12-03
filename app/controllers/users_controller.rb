@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def new
+    @user = User.new
   end
 
   def create
@@ -18,7 +19,7 @@ class UsersController < ApplicationController
         redirect_to user_path(user)
       else
         flash[:notice] = "Something Went Wrong Creating This User. Maybe one with this username already exists?"
-        redirect_to '/users/new'
+        render :new
       end
     end
   end
@@ -32,18 +33,18 @@ class UsersController < ApplicationController
   end
 
   def update
-    user = User.find(params[:id])
-    if user.id == session[:user_id]
-      user.update(user_params)
-      if user && user.save
-        redirect_to user_path(user)
+    @user = User.find(params[:id])
+    if @user.id == session[:user_id]
+      @user.update(user_params)
+      if @user && @user.save
+        redirect_to user_path(@user)
       else
         flash[:notice] = "Something went wrong when editing this profile."
-        redirect_to user_path(user)
+        render :new
       end
     else
       flash[:notice] = "You can't edit another user's profile."
-      redirect_to user_path(user)
+      redirect_to user_path(@user)
     end
   end
 
