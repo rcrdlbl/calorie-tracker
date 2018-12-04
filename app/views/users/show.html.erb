@@ -5,14 +5,14 @@
   <%= @user.name %>
 </div>
 <p>This user's calorie limit is <%= @user.max_calories %></p>
-<p>They have had <%= @user.todays_calories %> calories today. <%= link_to "See what they've eaten", user_meals_path(@user) %></p>
+<p>They have had <%= @user.todays_calories %> calories today. <%= link_to "See what they've eaten", user_meals_path(@user), class: "btn btn-dark" %></p>
 
 <% if @user.todays_calories > @user.max_calories %>
-<h3>That's over <%= @user.name %>'s limit!</h3>
+<div class="alert alert-danger">That's over <%= @user.name %>'s limit!</div>
 <% end %>
 <div class="btn-group">
-  <%= link_to "Log Out", '/logout', method: :delete, class: "btn btn-secondary" %>
-  <%= link_to "Edit Profile", edit_user_path(@user), class:"btn btn-secondary" %>
+  <%= link_to "Log Out", '/logout', method: :delete, class: "btn btn-dark" %>
+  <%= link_to "Edit Profile", edit_user_path(@user), class:"btn btn-dark" %>
 </div>
 <div class="btn-group">
   <%= link_to "Find a food item to eat", food_items_path, class: "btn btn-primary" %>
