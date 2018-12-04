@@ -1,7 +1,9 @@
 <% if flash[:notice] %>
 <%= content_tag :div, flash[:notice] %>
 <% end %>
-<h1><%= @user.name %></h1>
+<div class="card-header">
+  <%= @user.name %>
+</div>
 <p>This user's calorie limit is <%= @user.max_calories %></p>
 <p>They have had <%= @user.todays_calories %> calories today. <%= link_to "See what they've eaten", user_meals_path(@user) %></p>
 

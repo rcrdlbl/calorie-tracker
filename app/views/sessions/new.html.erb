@@ -15,6 +15,9 @@
     </ul>
   </div>
 <% end %>
+<div class="card-header">
+  Log in
+</div>
 <%= form_for @user, url: {action: 'create'} do |f| %>
 Email: <%= f.text_field :email %>
 Password <%= f.password_field :password %>

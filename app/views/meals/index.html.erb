@@ -1,4 +1,4 @@
-<h1><%= @user.name %>'s meals</h1>
+<div class="card-header"><%= @user.name %>'s meals</div>
 <% @meals.each do |meal| %>
 <div>
   <p><%= meal.food_quantity %><%= link_to meal.food_item.name.pluralize(meal.food_quantity), user_meal_path(@user, meal) %></p>

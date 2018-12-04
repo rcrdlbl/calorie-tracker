@@ -1,4 +1,4 @@
-<h1>All Foods</h1>
+<div class="card-header">All Foods</div>
 <ul>
   <% @food_items.each do |food_item| %>
   <li><%= link_to food_item.name, food_item_path(food_item) %></li>
