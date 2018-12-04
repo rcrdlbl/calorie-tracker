@@ -1,9 +1,9 @@
 <div class="card-header"><%= @user.name %>'s meals</div>
+<ul class="list-group list-group-flush">
 <% @meals.each do |meal| %>
-<div>
-  <p><%= meal.food_quantity %><%= link_to meal.food_item.name.pluralize(meal.food_quantity), user_meal_path(@user, meal) %></p>
-</div>
+  <li class="list-group-item"><%= meal.food_quantity %><%= link_to meal.food_item.name.pluralize(meal.food_quantity), user_meal_path(@user, meal) %></li>
 <% end %>
+</ul>
 <div>
-  <%= link_to "Back", user_path(@user) %>
+  <%= link_to "Back", user_path(@user), class: "btn btn-light" %>
 </div>

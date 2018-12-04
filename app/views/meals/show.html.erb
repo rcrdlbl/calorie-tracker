@@ -3,3 +3,4 @@
 </div>
 <h1><%= @user.name %> ate <%= @meal.food_quantity %> <%= @meal.food_item.name.pluralize(@meal.food_quantity) %>.</h1>
 <h3>This made <%= @user.name %> feel <%= @meal.description %>.</h3>
+<%= link_to "Back", user_meals_path(@user), class: "btn btn-light" %>
