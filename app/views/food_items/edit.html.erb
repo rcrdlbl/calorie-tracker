@@ -7,7 +7,7 @@
       <%= pluralize(@food_item.errors.count, "error") %>
       prohibited this post from being saved:
     </h2>
- 
+
     <ul>
     <% @food_item.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
@@ -15,5 +15,5 @@
     </ul>
   </div>
 <% end %>
-<h1>Editing <%= @food_item.name %></h1>
+<div class="card-header">Editing <%= @food_item.name %></div>
 <%= render partial: "form", locals: {food_item: @food_item, action: "update", button_text: "Edit"} %>

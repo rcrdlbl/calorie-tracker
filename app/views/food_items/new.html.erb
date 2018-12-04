@@ -5,7 +5,7 @@
   <div id="error_explanation">
     <h2>
       <%= pluralize(@food_item.errors.count, "error") %>
-      prohibited this post from being saved:
+      prohibited this item from being saved:
     </h2>
 
     <ul>
@@ -15,5 +15,5 @@
     </ul>
   </div>
 <% end %>
-<h1>New Food Item:</h1>
+<div class="card-header">New Food Item:</div>
 <%= render partial: "form", locals: {food_item: @food_item, action: "create", button_text: "Create Food Item"} %>

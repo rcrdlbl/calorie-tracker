@@ -1,9 +1,10 @@
-<h1>All Foods</h1>
-<ul>
+<div class="card-header">All Foods</div>
+<ul class="list-group list-group-flush">
   <% @food_items.each do |food_item| %>
-  <li><%= link_to food_item.name, food_item_path(food_item) %></li>
+  <li class="list-group-item"><%= link_to food_item.name, food_item_path(food_item) %></li>
   <% end %>
 </ul>
-
-<%= link_to "Add a Food Item", new_food_item_path %>
-<%= link_to "See what everyone's been eating", '/meals/eaten_today' %>
+<div class="btn-group">
+  <%= link_to "Add a Food Item", new_food_item_path, class: "btn btn-primary" %>
+  <%= link_to "See what everyone's been eating", '/meals/eaten_today', class: "btn btn-primary" %>
+</div>
