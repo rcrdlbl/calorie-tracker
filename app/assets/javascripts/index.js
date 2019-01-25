@@ -15,7 +15,7 @@ function getUser() {
     let userDisplay = user.userHTML()
     // return user
     // $('div.main').html(userDisplay)
-
+    return user
   })
 }
 
@@ -57,6 +57,7 @@ class User {
     this.email = obj.email
     this.id = obj.id
     this.max_calories = obj.max_calories
+    this.meals = obj.meals
   }
 }
 
@@ -89,3 +90,11 @@ FoodItem.prototype.foodItemHTML = function () {
       </div>
     `)
 }
+
+// function userMealList() {
+//   let user = getUser()
+//   let meals = user.meals
+//   debugger
+// }
+// // Append meal history to user show page
+// $('div.meal-history').append(userMealList())
