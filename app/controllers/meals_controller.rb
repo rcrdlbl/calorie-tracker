@@ -21,6 +21,10 @@ class MealsController < ApplicationController
   def show
     @user = User.find(params[:user_id])
     @meal = Meal.find(params[:id])
+    respond_to do |f|
+      f.html {render :show}
+      f.json {render json: @meal}
+    end
   end
 
   def eaten_today
