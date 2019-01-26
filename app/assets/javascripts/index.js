@@ -15,7 +15,7 @@ function getUser() {
     let userDisplay = user.userHTML()
     // return user
     // $('div.main').html(userDisplay)
-    return user
+    $('div.meal-history').append(user.userMealList())
   })
 }
 
@@ -67,6 +67,15 @@ User.prototype.userHTML = function () {
     <h1>${this.name}</h1>
     </div>
   `)
+}
+
+User.prototype.userMealList = function () {
+  meals = ['<ul>']
+  this.meals.forEach(function(meal) {
+    meals.push(`<li>${meal.description}</li>`)
+  })
+  meals.push('</ul>')
+  return meals
 }
 
 class Meal {
