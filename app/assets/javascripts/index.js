@@ -19,9 +19,9 @@ function getUser() {
   })
 }
 
-function getFoodItem() {
+function getFoodItem(id) {
   $.ajax({
-    url: "http://localhost:3000/food_items/1",
+    url: `http://localhost:3000/food_items/${id}`,
     method: 'get',
     dataType: 'json'
   }).done(function(response) {
@@ -72,7 +72,10 @@ User.prototype.userHTML = function () {
 User.prototype.userMealList = function () {
   meals = ['<ul>']
   this.meals.forEach(function(meal) {
-    meals.push(`<li>${meal.description}</li>`)
+    var today = new Date()
+    if (meal.eaten_today === true) {
+      meals.push(`<li>${meal.food_quantity} ${meal.food_item.name}(s) – ${(meal.food_item.calories * meal.food_quantity)}</li>`)
+    }
   })
   meals.push('</ul>')
   return meals
