@@ -110,3 +110,20 @@ FoodItem.prototype.foodItemHTML = function () {
 // }
 // // Append meal history to user show page
 // $('div.meal-history').append(userMealList())
+
+
+// New Meal form ajax request
+$(function() {
+  $('form#new_meal.new_meal').submit(function(event) {
+    event.preventDefault()
+
+    let values = $(this).serialize()
+    let user_id = document.getElementById('meal_user_id').value
+    let food_item_id = document.getElementById('meal_food_item_id').value
+    let posting = $.post(`/food_items/${food_item_id}/meals`, values)
+
+    posting.done(function(data) {
+      debugger;
+    })
+  })
+})
