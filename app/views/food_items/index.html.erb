@@ -1,7 +1,7 @@
 <div class="card-header">All Foods</div>
 <ul class="list-group list-group-flush">
   <% @food_items.each do |food_item| %>
-  <li class="list-group-item"><%= link_to food_item.name, food_item_path(food_item) %></li>
+  <li class="list-group-item-<%= food_item.id %>"><a href="#" class="food-item-link" data-food-item="<%= food_item.id %>"><%= food_item.name %></a></li>
   <% end %>
 </ul>
 <div class="btn-group">

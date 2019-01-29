@@ -114,6 +114,14 @@ FoodItem.prototype.foodItemHTML = function () {
 
 // New Meal form ajax request
 $(function() {
+  $('a#food-item-link').click(function(event) {
+    event.preventDefault()
+
+    let foodItemId = 
+  })
+})
+
+$(function() {
   $('form#new_meal.new_meal').submit(function(event) {
     event.preventDefault()
 
