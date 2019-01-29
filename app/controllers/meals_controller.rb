@@ -7,7 +7,7 @@ class MealsController < ApplicationController
     #fix this it's not good
     @meal = Meal.create(meal_params)
     if @meal.valid? && @meal.user_id == session[:user_id]
-      redirect_to user_meal_path(@meal.user, @meal)
+      render json: @meal, status: 201
     else
       render :new
     end

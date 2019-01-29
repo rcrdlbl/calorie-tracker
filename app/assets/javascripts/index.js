@@ -120,10 +120,13 @@ $(function() {
     let values = $(this).serialize()
     let user_id = document.getElementById('meal_user_id').value
     let food_item_id = document.getElementById('meal_food_item_id').value
-    let posting = $.post(`/food_items/${food_item_id}/meals`, values)
+    let posting = $.post(`http://localhost:3000/food_items/${food_item_id}/meals`, values)
 
     posting.done(function(data) {
-      debugger;
+      // debugger
+      header = `<h1>${data.user.name} just had ${data.food_quantity * data.food_item.calories} calories of ${data.food_item.name}.</h1>`
+      $('div.meal-form').empty()
+      $('div.meal-form').append(header)
     })
   })
 })
