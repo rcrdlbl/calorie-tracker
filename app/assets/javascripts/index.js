@@ -2,7 +2,39 @@ $(function() {
   console.log('index.js loaded ... ');
 })
 // Get model functions
-function getUser() {
+// function getUser() {
+//   $.ajax({
+//     url: "http://localhost:3000/users/1",
+//     method: 'get',
+//     dataType: 'json'
+//   }).done(function(response) {
+//     console.log("response: ", response);
+//
+// 
+//     let user = new User(response)
+//     let userDisplay = user.userHTML()
+//     // return user
+//     // $('div.main').html(userDisplay)
+//     $('div.meal-history').append(user.userMealList())
+//   })
+// }
+
+function getFoodItem(id) {
+  $.ajax({
+    url: `http://localhost:3000/food_items/${id}`,
+    method: 'get',
+    dataType: 'json'
+  }).done(function(response) {
+    console.log("response: ", response);
+
+
+    let food_item = new FoodItem(response)
+
+
+  })
+}
+
+function getCurrentUser() {
   $.ajax({
     url: "http://localhost:3000/users/1",
     method: 'get',
@@ -19,9 +51,9 @@ function getUser() {
   })
 }
 
-function getFoodItem(id) {
+function getFoodItems() {
   $.ajax({
-    url: `http://localhost:3000/food_items/${id}`,
+    url: `http://localhost:3000/food_items/`,
     method: 'get',
     dataType: 'json'
   }).done(function(response) {
@@ -29,8 +61,6 @@ function getFoodItem(id) {
 
 
     let food_item = new FoodItem(response)
-
-
   })
 }
 
@@ -48,7 +78,7 @@ function getMeal() {
 
   })
 }
-getUser()
+getCurrentUser()
 
 // Model classes
 class User {
@@ -97,8 +127,16 @@ class FoodItem {
 
 FoodItem.prototype.foodItemHTML = function () {
   return(`
-      <div>
+      <div hidden>
       <h4>${this.name} - ${this.calories} calories per serving</h4>
+      <a href="/food_items/${this.id}/meals/new">Eat</a>
+      </div>
+    `)
+}
+
+FoodItem.prototype.foodItemForms = function () {
+  return(`
+      <div>
       </div>
     `)
 }
@@ -114,10 +152,10 @@ FoodItem.prototype.foodItemHTML = function () {
 
 // New Meal form ajax request
 $(function() {
-  $('a#food-item-link').click(function(event) {
+  $('a.food-item-link').click(function(event) {
     event.preventDefault()
-
-    let foodItemId = 
+    let foodItemId = this.dataset.foodItem
+    debugger
   })
 })
 

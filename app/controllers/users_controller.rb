@@ -32,6 +32,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def current_user
+    @user = User.find(session[:user_id])
+    respond_to do |f|
+      f.html {render :show}
+      f.json {render json: @user}
+    end
+  end
+
   def edit
     @user = User.find(params[:id])
   end
