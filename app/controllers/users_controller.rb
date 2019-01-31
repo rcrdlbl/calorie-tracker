@@ -33,10 +33,11 @@ class UsersController < ApplicationController
   end
 
   def current_user
-    @user = User.find(session[:user_id])
-    respond_to do |f|
-      f.html {render :show}
-      f.json {render json: @user}
+    if session[:user_id]
+      @user = User.find(session[:user_id])
+      render json: @user
+    else
+      redirect_to '/'
     end
   end
 

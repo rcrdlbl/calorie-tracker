@@ -2,22 +2,22 @@ $(function() {
   console.log('index.js loaded ... ');
 })
 // Get model functions
-// function getUser() {
-//   $.ajax({
-//     url: "http://localhost:3000/users/1",
-//     method: 'get',
-//     dataType: 'json'
-//   }).done(function(response) {
-//     console.log("response: ", response);
-//
-// 
-//     let user = new User(response)
-//     let userDisplay = user.userHTML()
-//     // return user
-//     // $('div.main').html(userDisplay)
-//     $('div.meal-history').append(user.userMealList())
-//   })
-// }
+function getUser() {
+  $.ajax({
+    url: "http://localhost:3000/users/1",
+    method: 'get',
+    dataType: 'json'
+  }).done(function(response) {
+    console.log("response: ", response);
+
+
+    let user = new User(response)
+    let userDisplay = user.userHTML()
+    // return user
+    // $('div.main').html(userDisplay)
+    $('div.meal-history').append(user.userMealList())
+  })
+}
 
 function getFoodItem(id) {
   $.ajax({
@@ -36,7 +36,7 @@ function getFoodItem(id) {
 
 function getCurrentUser() {
   $.ajax({
-    url: "http://localhost:3000/users/1",
+    url: "http://localhost:3000/current_user",
     method: 'get',
     dataType: 'json'
   }).done(function(response) {
@@ -78,7 +78,7 @@ function getMeal() {
 
   })
 }
-getCurrentUser()
+// getCurrentUser()
 
 // Model classes
 class User {
@@ -155,7 +155,6 @@ $(function() {
   $('a.food-item-link').click(function(event) {
     event.preventDefault()
     let foodItemId = this.dataset.foodItem
-    debugger
   })
 })
 
