@@ -1,5 +1,6 @@
 $(function() {
   console.log('index.js loaded ... ');
+  listenForFoodItemClick();
 })
 // Get model functions
 function getUser() {
@@ -34,9 +35,20 @@ function getFoodItem(id) {
   })
 }
 
+function getFoodItemForm(linkPath) {
+  $.ajax({
+    url: `${linkPath}`,
+    method: 'get',
+    dataType: 'html'
+  }).done(function(response) {
+    console.log("response: ", response)
+    $('div.food-form-container').html(response)
+  })
+}
+
 function getCurrentUser() {
   $.ajax({
-    url: "http://localhost:3000/current_user",
+    url: "http://localhost:3000/the_current_user",
     method: 'get',
     dataType: 'json'
   }).done(function(response) {
@@ -50,7 +62,7 @@ function getCurrentUser() {
     $('div.meal-history').append(user.userMealList())
   })
 }
-
+getCurrentUser()
 function getFoodItems() {
   $.ajax({
     url: `http://localhost:3000/food_items/`,
@@ -134,12 +146,12 @@ FoodItem.prototype.foodItemHTML = function () {
     `)
 }
 
-FoodItem.prototype.foodItemForms = function () {
-  return(`
-      <div>
-      </div>
-    `)
-}
+// FoodItem.prototype.foodItemForms = function () {
+//   return(`
+//       <div>
+//       </div>
+//     `)
+// }
 
 // function userMealList() {
 //   let user = getUser()
@@ -151,12 +163,12 @@ FoodItem.prototype.foodItemForms = function () {
 
 
 // New Meal form ajax request
-$(function() {
+function listenForFoodItemClick() {
   $('a.food-item-link').click(function(event) {
     event.preventDefault()
-    let foodItemId = this.dataset.foodItem
+    getFoodItemForm(this.href)
   })
-})
+}
 
 $(function() {
   $('form#new_meal.new_meal').submit(function(event) {

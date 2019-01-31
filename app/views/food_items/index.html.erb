@@ -1,8 +1,12 @@
 <div class="card-header">All Foods</div>
-
-<div class="food-items-list">
+<div class="food-form-container">
 
 </div>
+<ul>
+  <% @food_items.each do |food_item| %>
+  <li><%= link_to food_item.name, new_food_item_meal_path(food_item), class: "food-item-link" %></li>
+  <% end %>
+</ul>
 <div class="btn-group">
   <%= link_to "Add a Food Item", new_food_item_path, class: "btn btn-primary" %>
   <%= link_to "See what everyone's been eating", '/meals/eaten_today', class: "btn btn-primary" %>

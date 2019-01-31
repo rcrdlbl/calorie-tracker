@@ -12,5 +12,5 @@ Rails.application.routes.draw do
     resources :meals, only: [:new, :create]
   end
   get '/meals/eaten_today', to: 'meals#eaten_today'
-  get '/current_user', to: 'users#current_user'
+  get '/the_current_user', to: 'users#the_current_user'
 end
