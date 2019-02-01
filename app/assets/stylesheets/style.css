@@ -1,0 +1,18 @@
+div.welcome {
+  font-family: "Helvetica", sans-serif;
+  font-weight: 900;
+  font-size: 13pt;
+  border-style: none none solid none;
+  border-width: 7pt;
+}
+
+div.main {
+  border-style: solid;
+  border-width: thin;
+  padding: 3pt
+}
+
+div.button {
+  border-style: solid none solid none;
+  border-width: thin;
+}

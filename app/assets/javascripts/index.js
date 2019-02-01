@@ -1,6 +1,7 @@
 $(function() {
   console.log('index.js loaded ... ');
   listenForFoodItemClick();
+  listenForMealFormClick()
 })
 // Get model functions
 function getUser() {
@@ -167,23 +168,47 @@ function listenForFoodItemClick() {
   $('a.food-item-link').click(function(event) {
     event.preventDefault()
     getFoodItemForm(this.href)
+    listenForMealFormClick()
   })
 }
 
-$(function() {
-  $('form#new_meal.new_meal').submit(function(event) {
+
+function listenForMealFormClick() {
+  $('input.submit-button').click(function(event) {
+    debugger
     event.preventDefault()
-
-    let values = $(this).serialize()
-    let user_id = document.getElementById('meal_user_id').value
-    let food_item_id = document.getElementById('meal_food_item_id').value
-    let posting = $.post(`http://localhost:3000/food_items/${food_item_id}/meals`, values)
-
-    posting.done(function(data) {
-      // debugger
-      header = `<h1>${data.user.name} just had ${data.food_quantity * data.food_item.calories} calories of ${data.food_item.name}.</h1>`
-      $('div.meal-form').empty()
-      $('div.meal-form').append(header)
-    })
+    submitMealForm()
   })
-})
+}
+
+function submitMealForm() {
+  let values = $('form#new_meal.new_meal').serialize()
+  let user_id = document.getElementById('meal_user_id').value
+  let food_item_id = document.getElementById('meal_food_item_id').value
+  let posting = $.post(`http://localhost:3000/food_items/${food_item_id}/meals`, values)
+
+  posting.done(function(data) {
+    // debugger
+    header = `<h1>${data.user.name} just had ${data.food_quantity * data.food_item.calories} calories of ${data.food_item.name}.</h1>`
+    $('div.meal-form').empty()
+    $('div.meal-form').append(header)
+  })
+}
+
+// $(function() {
+//   $('form#new_meal.new_meal').submit(function(event) {
+//     event.preventDefault()
+//
+//     let values = $(this).serialize()
+//     let user_id = document.getElementById('meal_user_id').value
+//     let food_item_id = document.getElementById('meal_food_item_id').value
+//     let posting = $.post(`http://localhost:3000/food_items/${food_item_id}/meals`, values)
+//
+//     posting.done(function(data) {
+//       // debugger
+//       header = `<h1>${data.user.name} just had ${data.food_quantity * data.food_item.calories} calories of ${data.food_item.name}.</h1>`
+//       $('div.meal-form').empty()
+//       $('div.meal-form').append(header)
+//     })
+//   })
+// })
