@@ -113,14 +113,13 @@ User.prototype.userHTML = function () {
 }
 
 User.prototype.userMealList = function () {
-  meals = ['<ul>']
+  meals = []
   this.meals.forEach(function(meal) {
     var today = new Date()
     if (meal.eaten_today === true) {
-      meals.push(`<li>${meal.food_quantity} ${meal.food_item.name}(s) – ${(meal.food_item.calories * meal.food_quantity)}</li>`)
+      meals.push(`<div class="field"><strong>${meal.food_item.name}:</strong> ${meal.food_quantity} serving(s) <span class="right"><strong>Calories:</strong> ${(meal.food_item.calories * meal.food_quantity)}</span></div>`)
     }
   })
-  meals.push('</ul>')
   return meals
 }
 

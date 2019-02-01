@@ -15,14 +15,17 @@
     </ul>
   </div>
 <% end %>
-<div class="card-header">
+<div class="welcome">
   Log in
 </div>
 <%= form_for @user, url: {action: 'create'} do |f| %>
-Email: <%= f.text_field :email %>
-Password <%= f.password_field :password %>
-<%= f.submit "Sign In" %>
+<div class="field">
+  Email: <%= f.text_field :email %>
+</div>
+<div class="field">
+  Password: <%= f.password_field :password %> <%= f.submit "Sign In" %>
+</div>
 <% end %>
-<div class="btn-group">
+<div class="button">
   <%= link_to "Or Login With Facebook", '/auth/facebook', class: "btn btn-primary" %>
 </div>

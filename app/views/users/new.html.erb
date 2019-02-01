@@ -1,4 +1,4 @@
-<div class="card-header">
+<div class="welcome">
   Create User
 </div>
 <% if flash[:notice] %>
@@ -20,6 +20,6 @@
 <% end %>
 <%= render partial: "form", locals: {user: @user, action: "create", button_text: "Sign Up"} %>
 
-<div class="btn-group">
+<div class="button">
   <%= link_to "Or Login With Facebook", '/auth/facebook', class: "btn btn-primary" %>
 </div>
