@@ -20,7 +20,8 @@ div.main {
   max-width: 500px;
   border-style: solid;
   border-width: thin;
-  padding: 3pt
+  padding: 3pt;
+  margin-top: 10px
 }
 
 div.button {
@@ -85,4 +86,10 @@ input[type=submit]:hover {
   font-weight: bold;
   font-size: 13pt;
   padding: 0pt
+}
+
+div.nav {
+  margin: 0 auto;
+  max-width: 500px;
+  margin-top: 3px;
 }

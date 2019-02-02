@@ -16,6 +16,13 @@
           <div class="main">
             <%= yield %>
           </div>
+          <div class="nav">
+            <strong>Calorie Tracker:</strong>
+            <% if session[:user_id] %>
+              <%= link_to "My Profile", user_path(session[:user_id]) %>,
+            <% end %>
+            Made by <a href="http://przemyslaw.org">przemyslaw.org</a>
+          </div>
         </div>
       </div>
     </div>

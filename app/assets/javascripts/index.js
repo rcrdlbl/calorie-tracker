@@ -17,7 +17,7 @@ function getUser() {
     let userDisplay = user.userHTML()
     // return user
     // $('div.main').html(userDisplay)
-    $('div.meal-history').append(user.userMealList())
+
   })
 }
 
@@ -60,7 +60,11 @@ function getCurrentUser() {
     let userDisplay = user.userHTML()
     // return user
     // $('div.main').html(userDisplay)
-    $('div.meal-history').append(user.userMealList())
+    if (user.userMealList.length > 0) {
+      $('div.meal-history').append(user.userMealList())
+    } else {
+      $('div.meal-history').append('<div class="field">Nothing eaten today</div>')
+    }
   })
 }
 getCurrentUser()
