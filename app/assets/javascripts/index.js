@@ -2,6 +2,7 @@ $(function() {
   console.log('index.js loaded ... ');
   listenForFoodItemClick();
   listenForMealFormClick()
+  getCurrentUser()
 })
 // Get model functions
 function getUser() {
@@ -60,14 +61,13 @@ function getCurrentUser() {
     let userDisplay = user.userHTML()
     // return user
     // $('div.main').html(userDisplay)
-    if (user.userMealList.length > 0) {
+    if (user.userMealList().length > 0) {
       $('div.meal-history').append(user.userMealList())
     } else {
       $('div.meal-history').append('<div class="field">Nothing eaten today</div>')
     }
   })
 }
-getCurrentUser()
 function getFoodItems() {
   $.ajax({
     url: `http://localhost:3000/food_items/`,
@@ -119,7 +119,6 @@ User.prototype.userHTML = function () {
 User.prototype.userMealList = function () {
   meals = []
   this.meals.forEach(function(meal) {
-    var today = new Date()
     if (meal.eaten_today === true) {
       meals.push(`<div class="field"><strong>${meal.food_item.name}:</strong> ${meal.food_quantity} serving(s) <span class="right"><strong>Calories:</strong> ${(meal.food_item.calories * meal.food_quantity)}</span></div>`)
     }

@@ -4,7 +4,7 @@ class MealSerializer < ActiveModel::Serializer
   belongs_to :user
   # scope :eaten_today, -> {where("created_at >= ?", Time.zone.now.beginning_of_day)}
   def eaten_today
-    if object.created_at >= Time.zone.now.beginning_of_day
+    if object.created_at >= DateTime.now.in_time_zone(Time.zone).beginning_of_day
       true
     else
       false
