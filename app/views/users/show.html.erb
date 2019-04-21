@@ -1,19 +1,27 @@
 <% if flash[:notice] %>
 <%= content_tag :div, flash[:notice] %>
 <% end %>
-<div class="card-header">
+<div class="welcome">
   <%= @user.name %>
 </div>
-<p>This user's calorie limit is <%= @user.max_calories %></p>
-<p>They have had <%= @user.todays_calories %> calories today. <%= link_to "See what they've eaten", user_meals_path(@user), class: "btn btn-dark" %></p>
-
+<div class="field">
+  <strong>Calorie Limit:</strong> <%= @user.max_calories %> <span class="right"><strong>Eaten Today:</strong> <%= @user.todays_calories %></span>
+</div>
 <% if @user.todays_calories > @user.max_calories %>
 <div class="alert alert-danger">That's over <%= @user.name %>'s limit!</div>
 <% end %>
-<div class="btn-group">
-  <%= link_to "Log Out", '/logout', method: :delete, class: "btn btn-danger" %>
+<div class="field">
+  <strong>Meals Eaten Today:</strong>
+</div>
+<div class="meal-history">
+
+</div>
+<div class="button">
+  <%= link_to "Find a food item to eat", food_items_path, class: "btn btn-primary" %>
+</div>
+<div class="button">
   <%= link_to "Edit Profile", edit_user_path(@user), class:"btn btn-dark" %>
 </div>
-<div class="btn-group">
-  <%= link_to "Find a food item to eat", food_items_path, class: "btn btn-primary" %>
+<div class="button">
+  <%= link_to "Log Out", '/logout', method: :delete, class: "btn btn-danger" %>
 </div>

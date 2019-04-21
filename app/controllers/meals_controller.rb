@@ -1,13 +1,14 @@
 class MealsController < ApplicationController
   def new
     @meal = Meal.new(food_item_id: params[:food_item_id], user_id: session[:user_id] )
+    render :new, layout: false
   end
 
   def create
     #fix this it's not good
     @meal = Meal.create(meal_params)
     if @meal.valid? && @meal.user_id == session[:user_id]
-      redirect_to user_meal_path(@meal.user, @meal)
+      render json: @meal, status: 201
     else
       render :new
     end
@@ -21,6 +22,10 @@ class MealsController < ApplicationController
   def show
     @user = User.find(params[:user_id])
     @meal = Meal.find(params[:id])
+    respond_to do |f|
+      f.html {render :show}
+      f.json {render json: @meal}
+    end
   end
 
   def eaten_today

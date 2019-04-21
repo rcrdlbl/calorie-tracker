@@ -1,5 +1,9 @@
 <%= form_for(food_item, url: {action: action}) do |f|%>
-Name: <%= f.text_field :name %>
-Calories: <%= f.number_field :calories %>
-<%= f.submit "#{button_text}" %>
+<div class="field">
+  <strong>Name:</strong> <%= f.text_field :name %>
+  <span class="right"><strong>Calories:</strong> <%= f.number_field :calories %></span>
+</div>
+<div class="button">
+  <%= f.submit "#{button_text}" %>  
+</div>
 <% end %>

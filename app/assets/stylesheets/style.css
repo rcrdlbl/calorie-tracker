@@ -1,0 +1,95 @@
+* {
+  font-family: "Helvetica", sans-serif;
+}
+
+div.welcome {
+  font-family: "Helvetica", sans-serif;
+  font-weight: 900;
+  font-size: 13pt;
+  border-style: none none solid none;
+  border-width: 7pt;
+  padding: 1pt;
+}
+
+span.right {
+  float: right;
+}
+
+div.main {
+  margin: 0 auto;
+  max-width: 500px;
+  border-style: solid;
+  border-width: thin;
+  padding: 3pt;
+  margin-top: 10px
+}
+
+div.button {
+  border-style: solid none none none;
+  border-width: thin;
+  padding: 1pt;
+}
+
+a:link {
+  font-family: "Helvetica", sans-serif;
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+
+a:visited {
+  font-family: "Helvetica", sans-serif;
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+
+a:hover {
+  font-family: "Helvetica", sans-serif;
+  text-decoration: underline;
+  color: #000;
+  font-weight: bold;
+}
+
+input {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 1px solid black;
+  align-self: right;
+  padding: 0pt;
+  margin: 1pt;
+}
+
+div.field {
+  border-style: solid none none none;
+  border-width: thin;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+input[type=submit] {
+  border: none;
+  font-family: "Helvetica", sans-serif;
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+  font-size: 13pt;
+  padding: 0pt
+}
+
+input[type=submit]:hover {
+  border: none;
+  font-family: "Helvetica", sans-serif;
+  text-decoration: underline;
+  color: #000;
+  font-weight: bold;
+  font-size: 13pt;
+  padding: 0pt
+}
+
+div.nav {
+  margin: 0 auto;
+  max-width: 500px;
+  margin-top: 3px;
+}

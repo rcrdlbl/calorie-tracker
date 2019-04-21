@@ -5,6 +5,10 @@ class FoodItemsController < ApplicationController
 
   def show
     @food_item = FoodItem.find(params[:id])
+    respond_to do |f|
+      f.html {render :show}
+      f.json {render json: @food_item}
+    end
   end
 
   def new
@@ -14,7 +18,7 @@ class FoodItemsController < ApplicationController
   def create
     @food_item = FoodItem.create(food_item_params)
     if @food_item.valid?
-      redirect_to food_item_path(@food_item)
+      redirect_to food_items_path
     else
       render :new
     end
